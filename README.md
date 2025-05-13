@@ -1,39 +1,34 @@
-# ts-design-patterns
+# TypeScript Design Patterns
 
-This template should help get you started developing with Vue 3 in Vite.
+Паттерны проектирования с примерами на TypeScript.
 
-## Recommended IDE Setup
+### Демо
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+[https://far4ru.github.io/ts-design-patterns/](https://far4ru.github.io/ts-design-patterns/)
 
-## Type Support for `.vue` Imports in TS
+### Технологии
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- Vue.js 3
+- TypeScript
+- Vite
+- ESLint
 
-## Customize configuration
+### Запуск и сборка
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+Установка зависимостей:
 
-## Project Setup
-
-```sh
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+Запуск для разработки:
 
-```sh
+```bash
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+Сборка для production:
 
-```sh
+```bash
 npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
