@@ -103,6 +103,14 @@ export default {
   .pattern-card {
     max-width: 800px;
   }
+  .pattern-code-block {
+    background-color: var(--color-border);
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+    overflow-x: auto;
+    height: 45vh;
+  }
 }
 
 @media (max-width: 900px) {
@@ -111,6 +119,9 @@ export default {
     width: 100vw;
     margin: 0px;
   }
+  .pattern-card-title {
+    margin-top: 40px;
+  }
 }
 
 .pattern-card-title {
@@ -118,12 +129,6 @@ export default {
   color: var(--color-heading);
   text-align: center;
   margin-bottom: 15px;
-}
-
-@media (max-width: 900px) {
-  .pattern-card-title {
-    margin-top: 40px;
-  }
 }
 
 .pattern-card-description {
@@ -138,17 +143,6 @@ export default {
   margin: 15px 0;
   overflow-x: auto;
   height: 540px;
-}
-
-@media (max-width: 1024px) {
-  .pattern-code-block {
-    background-color: var(--color-border);
-    border-radius: 8px;
-    padding: 15px;
-    margin: 15px 0;
-    overflow-x: auto;
-    height: 45vh;
-  }
 }
 
 .pattern-notes {

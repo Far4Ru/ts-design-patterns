@@ -16,24 +16,26 @@
       <h4>TypeScript</h4>
       <ul>
         <li class="pattern-menu-list-item" v-for="(item, index) in menuItems" :key="index">
-          <p :title="item.en_title" class="pattern-menu-list-item-title">
+          <p :title="item.en_title" class="pattern-menu-list-item-title" @click="toggleSubitems(index)">
             {{ item.title }}
           </p>
-          <ul>
-            <li
-              class="pattern-menu-sublist-item"
-              v-for="(item, index) in item.subitems"
-              :key="index"
-            >
-              <p
-                @click="handleItem(item)"
-                :title="item.en_title"
-                class="pattern-menu-sublist-item-title"
+          <transition name="slide">
+            <ul v-if="item.showSubitems">
+              <li
+                class="pattern-menu-sublist-item"
+                v-for="(item, index) in item.subitems"
+                :key="index"
               >
-                {{ item.title }}
-              </p>
-            </li>
-          </ul>
+                <p
+                  @click="handleItem(item)"
+                  :title="item.en_title"
+                  class="pattern-menu-sublist-item-title"
+                >
+                  {{ item.title }}
+                </p>
+              </li>
+            </ul>
+          </transition>
         </li>
       </ul>
     </div>
@@ -54,6 +56,7 @@ export default {
   mounted() {
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
+    this.toggleSubitems(0);
   },
   beforeUnmount() {
     window.removeEventListener('resize', this.handleResize);
@@ -69,6 +72,12 @@ export default {
     handleResize() {
       this.isMinimized = window.innerWidth <= 1024
     },
+    toggleSubitems(id) {
+      const item = this.menuItems[id];
+      if (item) {
+        item.showSubitems = !item.showSubitems;
+      }
+    }
   }
 }
 </script>
@@ -82,14 +91,6 @@ export default {
   overflow-y: auto;
 }
 
-@media (max-width: 1024px) {
-  .pattern-menu {
-    position: absolute;
-    z-index: 30;
-    width: 100%;
-  }
-}
-
 .pattern-menu-burger {
   margin: 20px;
   background-color: var(--color-border);
@@ -101,6 +102,19 @@ export default {
   background-color: var(--color-menu-background);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  height: unset;
+}
+
+@media (max-width: 1024px) {
+  .pattern-menu {
+    position: fixed;
+    z-index: 30;
+    width: 100%;
+  }
+
+  .pattern-menu-container {
+    height: 100vh;
+  }
 }
 
 .pattern-menu h3 {
@@ -115,6 +129,7 @@ export default {
 }
 
 .pattern-menu ul {
+  user-select: none;
   list-style: none;
   padding: 0;
 }
@@ -149,5 +164,15 @@ export default {
 
 .pattern-menu-sublist-item-title:hover {
   background-color: var(--color-border-hover);
+}
+
+.slide-enter-active, .slide-leave-active {
+  transition: max-height 0.3s ease;
+  max-height: 500px;
+}
+
+.slide-enter, .slide-leave-to {
+  max-height: 0;
+  overflow: hidden;
 }
 </style>

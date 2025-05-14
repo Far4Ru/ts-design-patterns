@@ -31,6 +31,7 @@ export default {
   padding: 20px;
   background-color: var(--color-background);
   flex-grow: 1;
+  min-height: 92vh;
 }
 
 @media (max-width: 900px) {
