@@ -2,7 +2,7 @@
 
 Паттерны проектирования с примерами на TypeScript.
 
-![Screenshot](screenshots/screen.png?)
+![Light screen](screenshots/light-screen.png?)
 
 ### Демо
 
