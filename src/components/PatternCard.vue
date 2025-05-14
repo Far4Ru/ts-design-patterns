@@ -120,6 +120,12 @@ export default {
   margin-bottom: 15px;
 }
 
+@media (max-width: 900px) {
+  .pattern-card-title {
+    margin-top: 40px;
+  }
+}
+
 .pattern-card-description {
   color: var(--color-text);
   line-height: 1.5;
@@ -134,7 +140,7 @@ export default {
   height: 540px;
 }
 
-@media (max-height: 700px) {
+@media (max-width: 1024px) {
   .pattern-code-block {
     background-color: var(--color-border);
     border-radius: 8px;

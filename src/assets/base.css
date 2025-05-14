@@ -98,10 +98,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+}
+
+* {
+  ::-webkit-scrollbar {
+      width: 0px;
+  }
+
   ::-webkit-scrollbar-track {
       background: transparent;
   }
-  * {
-      scrollbar-color: transparent transparent;
-  }
+  
+  scrollbar-width: none;
+  scrollbar-color: transparent transparent;
 }
