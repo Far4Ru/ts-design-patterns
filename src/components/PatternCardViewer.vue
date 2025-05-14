@@ -29,17 +29,12 @@ export default {
 <style scoped>
 .pattern-card-viewer {
   padding: 20px;
-  background-color: #fff;
+  background-color: var(--color-background);
   flex-grow: 1;
 }
 
-.pattern-card-viewer h2 {
-  margin-top: 0;
-  color: #333;
-}
-
 .pattern-card-viewer p {
-  color: #666;
+  color: var(--color-text);
 }
 
 .pattern-card-viewer-help {

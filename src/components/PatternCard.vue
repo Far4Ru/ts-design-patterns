@@ -12,7 +12,18 @@ const MONACO_EDITOR_OPTIONS = {
 }
 
 const editor = shallowRef()
-const handleMount = (editorInstance) => (editor.value = editorInstance)
+
+const changeEditorTheme = () => {
+  const themeIsDark = window.matchMedia('(prefers-color-scheme: dark)')
+  const newTheme = themeIsDark.matches ? 'vs-dark' : 'vs';
+  editor.value._themeService.setTheme(newTheme)
+}
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', changeEditorTheme);
+
+const handleMount = (editorInstance) => {
+  editor.value = editorInstance
+  changeEditorTheme()
+}
 </script>
 
 <template>
@@ -27,7 +38,7 @@ const handleMount = (editorInstance) => (editor.value = editorInstance)
     <div v-if="selectedSubItem.code" class="pattern-code-block">
       <vue-monaco-editor
         v-model:value="mutableValue"
-        theme="vs"
+        :theme="codeTheme"
         language="typescript"
         height="540px"
         :options="MONACO_EDITOR_OPTIONS"
@@ -52,6 +63,10 @@ export default {
       type: Object,
       default: null,
     },
+    codeTheme: {
+      type: String,
+      default: "vs",
+    },
   },
   computed: {
     mutableValue: {
@@ -73,25 +88,25 @@ export default {
   margin: 20px auto;
   padding: 20px;
   border-radius: 12px;
-  background-color: #ffffff;
+  background-color: var(--color-background);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   font-family: 'Arial', sans-serif;
 }
 
 .pattern-card-title {
   margin-top: 10px;
-  color: #2c3e50;
+  color: var(--color-heading);
   text-align: center;
   margin-bottom: 15px;
 }
 
 .pattern-card-description {
-  color: #34495e;
+  color: var(--color-text);
   line-height: 1.5;
 }
 
 .pattern-code-block {
-  background-color: #f8f8f8;
+  background-color: var(--color-border);
   border-radius: 8px;
   padding: 15px;
   margin: 15px 0;
@@ -104,11 +119,10 @@ export default {
 
 .pattern-code-block code {
   font-family: 'Courier New', monospace;
-  color: #333;
 }
 
 .pattern-notes {
-  background-color: #f0f7ff;
+  background-color: var(--color-note-background);
   border-radius: 8px;
   padding: 15px;
   margin-top: 15px;
@@ -116,7 +130,7 @@ export default {
 
 .pattern-notes-title {
   margin-top: 0;
-  color: #2c3e50;
+  color: var(--color-heading);
   font-size: 1.1em;
 }
 
@@ -127,7 +141,7 @@ export default {
 
 .pattern-notes-list li {
   margin-bottom: 5px;
-  color: #34495e;
+  color: var(--color-text);
 }
 
 .pattern-notes-list li:last-child {

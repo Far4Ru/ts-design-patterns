@@ -47,14 +47,13 @@ export default {
 }
 .pattern-menu-container {
   padding: 20px 10px;
-  background-color: #f0f8f0;
+  background-color: var(--color-menu-background);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
 
 .pattern-menu h3 {
   margin-top: 5px;
-  color: #333;
   text-align: center;
 }
 
@@ -80,7 +79,7 @@ export default {
 }
 
 .pattern-menu-list-item-title:hover {
-  background-color: #e0e0e0;
+  background-color: var(--color-border-hover);
 }
 
 .pattern-menu-sublist-item {
@@ -96,6 +95,6 @@ export default {
 }
 
 .pattern-menu-sublist-item-title:hover {
-  background-color: #e0e0e0;
+  background-color: var(--color-border-hover);
 }
 </style>
