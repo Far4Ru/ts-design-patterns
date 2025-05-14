@@ -131,8 +131,6 @@ export default {
   padding: 15px;
   margin: 15px 0;
   overflow-x: auto;
-  min-height: 45vh;
-  max-height: 540px;
   height: 540px;
 }
 
@@ -143,8 +141,6 @@ export default {
     padding: 15px;
     margin: 15px 0;
     overflow-x: auto;
-    min-height: 45vh;
-    max-height: 540px;
     height: 45vh;
   }
 }
