@@ -53,6 +53,7 @@ export default {
 }
 
 .pattern-menu h3 {
+  color: var(--color-heading);
   margin-top: 5px;
   text-align: center;
 }
@@ -73,6 +74,7 @@ export default {
 }
 
 .pattern-menu-list-item-title {
+  color: var(--color-heading);
   padding: 10px;
   cursor: pointer;
   border-radius: 4px;
