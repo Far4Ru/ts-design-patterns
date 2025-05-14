@@ -2,6 +2,8 @@
 
 Паттерны проектирования с примерами на TypeScript.
 
+![Screenshot](screenshots/screen.png?)
+
 ### Демо
 
 [https://far4ru.github.io/ts-design-patterns/](https://far4ru.github.io/ts-design-patterns/)
