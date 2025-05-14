@@ -44,7 +44,6 @@ export default {
 .pattern-menu {
   width: 260px;
   flex-shrink: 0;
-  margin: 40px 5px 60px 20px;
 }
 .pattern-menu-container {
   padding: 20px 10px;
