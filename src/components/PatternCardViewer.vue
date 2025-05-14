@@ -33,6 +33,12 @@ export default {
   flex-grow: 1;
 }
 
+@media (max-width: 900px) {
+  .pattern-card-viewer {
+    padding: 0px;
+  }
+}
+
 .pattern-card-viewer p {
   color: var(--color-text);
 }

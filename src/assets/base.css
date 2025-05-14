@@ -26,7 +26,7 @@
   --note-background-dark: #041f3f;
 
   --menu-background-light: #f0f8f0;
-  --menu-background-dark: #0f8f0;
+  --menu-background-dark: #1f241f;
 }
 
 /* semantic color variables for this project */
@@ -97,4 +97,11 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  ::-webkit-scrollbar-track {
+      background: transparent;
+  }
+  * {
+      scrollbar-color: transparent transparent;
+  }
 }

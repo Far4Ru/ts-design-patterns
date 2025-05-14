@@ -38,11 +38,11 @@ const handleMount = (editorInstance) => {
     <div v-if="selectedSubItem.code" class="pattern-code-block">
       <vue-monaco-editor
         v-model:value="mutableValue"
-        :theme="codeTheme"
         language="typescript"
-        height="540px"
+        height="100%"
         :options="MONACO_EDITOR_OPTIONS"
         @mount="handleMount"
+        class="pattern-card-editor"
       />
     </div>
 
@@ -93,6 +93,26 @@ export default {
   font-family: 'Arial', sans-serif;
 }
 
+@media (max-width: 1130px) {
+  .pattern-card {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .pattern-card {
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 900px) {
+  .pattern-card {
+    max-width: unset;
+    width: 100vw;
+    margin: 0px;
+  }
+}
+
 .pattern-card-title {
   margin-top: 10px;
   color: var(--color-heading);
@@ -111,14 +131,22 @@ export default {
   padding: 15px;
   margin: 15px 0;
   overflow-x: auto;
+  min-height: 45vh;
+  max-height: 540px;
+  height: 540px;
 }
 
-.pattern-code-block pre {
-  margin: 0;
-}
-
-.pattern-code-block code {
-  font-family: 'Courier New', monospace;
+@media (max-height: 700px) {
+  .pattern-code-block {
+    background-color: var(--color-border);
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+    overflow-x: auto;
+    min-height: 45vh;
+    max-height: 540px;
+    height: 45vh;
+  }
 }
 
 .pattern-notes {
